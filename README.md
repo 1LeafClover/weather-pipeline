@@ -19,17 +19,17 @@
 ```mermaid
 flowchart TB
   subgraph Extraction
-    A[WeatherAPI] -->|Python| B[(PostgreSQL\nBronze)]
+    A[WeatherAPI] -->|Python| B[(PostgreSQL<br>Bronze)]
   end
   subgraph Transformation
-    B -->|dbt| C[(PostgreSQL\nSilver)]
-    C -->|dbt| D[(PostgreSQL\nGold)]
+    B -->|dbt| C[(PostgreSQL<br>Silver)]
+    C -->|dbt| D[(PostgreSQL<br>Gold)]
   end
   subgraph Orchestration
     G[Airflow] -->|Triggers| A
     G -->|Monitors| C
   end
   subgraph Observability
-    D --> E[Grafana\nDashboard]
-    D --> F[Slack\nAlerts]
+    D --> E[Grafana<br>Dashboard]
+    D --> F[Slack\<br>Alerts]
   end
